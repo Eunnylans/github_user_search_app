@@ -2,21 +2,27 @@ import React from "react";
 
 const UserCardDetails = () => {
   return (
-    <div class="container mt-3">
-      <h2>Card Image</h2>
-      <p>Image at the top (card-img-top):</p>
-      <div class="card" style="width:400px">
-        <img class="card-img-top" src="" alt="Card image" style="width:100%" />
-        <div class="card-body">
-          <h4 class="card-title">John Doe</h4>
-          <p class="card-text">
-            Some example text some example text. John Doe is an architect and
-            engineer
-          </p>
-          <a href="#" class="btn btn-primary">
-            See Profile
-          </a>
-        </div>
+    <div class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+      </ul>
+      <div class="card-body">
+        <a href="#" class="card-link">
+          Card link
+        </a>
+        <a href="#" class="card-link">
+          Another link
+        </a>
       </div>
     </div>
   );
