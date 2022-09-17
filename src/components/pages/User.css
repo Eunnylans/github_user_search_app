@@ -1,0 +1,20 @@
+.user-information{
+    background: #333;
+    padding: 40px 30px;
+    border-radius: 10px;
+    height: 270px;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: row;
+    color: white;
+}
+
+.user-information .image {
+    width: 30%;
+    margin-right: 30px;
+}
+
+.user-information .image img{
+    width: 200px;
+    border-radius: 10px;
+}
