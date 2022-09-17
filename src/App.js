@@ -1,13 +1,17 @@
 import React from "react";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import "./App.css";
-import Home from './components/pages/Home';
-
+import Home from "./components/pages/Home";
+import User from "./components/pages/User"
 
 const App = () => {
   return (
-    <div className='container'>
-   <Home />
-    </div>
+    <BrowserRouter>
+      <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/User" element={<User />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
