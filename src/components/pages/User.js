@@ -3,11 +3,15 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import OpenInBrowserIcon from "@mui/icons-material/OpenInBrowser";
 import PersonIcon from "@mui/icons-material/Person";
 import React from "react";
+import { Link } from "react-router-dom";
 import "./User.css";
 
 const User = () => {
   return (
     <div className="container">
+      <Link to="/" className="back">
+        Back
+      </Link>
       <div className="user-information">
         <div className="image">
           <img
@@ -39,7 +43,9 @@ const User = () => {
       </div>
       <div className="user-repos">
         <div className="repo">
-          <h3>Name of the repo</h3>
+          <h3>
+            <a href="#">Name of the repo</a>
+          </h3>
           <p>Repo Description</p>
           <small>Written in JavaScript</small>
         </div>
