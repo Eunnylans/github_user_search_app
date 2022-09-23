@@ -9,10 +9,10 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/User" element={<User />} />
+        <Route path="/user/:login" element={<User />} />
       </Routes>
     </BrowserRouter>
   );
-};
+}
 
 export default App;

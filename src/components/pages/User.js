@@ -7,6 +7,29 @@ import { Link } from "react-router-dom";
 import "./User.css";
 
 const User = () => {
+  const { login } = useParams();
+
+  //UserInformation
+  const [userInfo, setUserInfo] = useState({});
+  //User repos
+  const [repos, setRepos] = useState([]);
+
+  useEffect(() => {
+    const fetchUserInformation = async () => {
+      try {
+        const response = await Promise.all([
+          axios.get(`/users/${login}`),
+          axios.get(`/users/${login}/repos`),
+        ]);
+        setUserInfo(response[0].data);
+        setRepos(response[1].data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchUserInformation();
+  }, []);
+
   return (
     <div className="container">
       <Link to="/" className="back">
@@ -14,13 +37,10 @@ const User = () => {
       </Link>
       <div className="user-information">
         <div className="image">
-          <img
-            src="https://scontent-frt3-1.xx.fbcdn.net/v/t1.6435-9/185872471_10215171635523483_1904449185798158987_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=G9o73-7NUBgAX-d0DCr&_nc_oc=AQnhIYyj6AV506JCkX-WQMqhNyYsyNu5uneln_s1CUO9h2_GZAJnzTNFV9PQGuRMnzY&tn=6n4Q6I1YmwmBo1l1&_nc_ht=scontent-frt3-1.xx&oh=00_AT_mrBovunTS_QpR-KtHSZgcWldklzchmHFl_bGbYHN0hw&oe=634915C2"
-            alt=""
-          />
+          <img src={userInfo?.avatar_url} />
         </div>
         <div className="user-content">
-          <h3> Name of User</h3>
+          <h3>{userInfo?.name}</h3>
           <p>Bio</p>
           <div className="more-data">
             <p>
