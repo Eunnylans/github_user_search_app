@@ -2,8 +2,9 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import OpenInBrowserIcon from "@mui/icons-material/OpenInBrowser";
 import PersonIcon from "@mui/icons-material/Person";
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import axios from "../../axios";
 import "./User.css";
 
 const User = () => {
@@ -41,11 +42,11 @@ const User = () => {
         </div>
         <div className="user-content">
           <h3>{userInfo?.name}</h3>
-          <p>Bio</p>
+          <p>{userInfo?.bio}</p>
           <div className="more-data">
             <p>
-              <PersonIcon />
-              20 Followers. Following 10
+              <PersonIcon src={user} />
+              {userInfo?.followers} Followers. Following {userInfo?.following}
             </p>
             <p>
               <LocationOnIcon />
