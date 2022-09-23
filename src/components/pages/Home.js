@@ -43,6 +43,8 @@ const Home = () => {
         </form>
       </div>
       <div className="search-results">
+      <div className="more-options"></div>
+
       {users ? users.map(user =>{
         return <User user={user} key={user.id} />
       }) :  <h2>There is nothing to display</h2>}

@@ -1,15 +1,15 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./components/pages/Home";
-import User from "./components/pages/User"
+import User from "./components/pages/User";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/User" element={<User />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/User" element={<User />} />
       </Routes>
     </BrowserRouter>
   );
