@@ -62,5 +62,9 @@
 }
 
 .repo a {
-    color: #6cc644;
+  color: #6cc644;
+}
+
+p a {
+  color: white;
 }
