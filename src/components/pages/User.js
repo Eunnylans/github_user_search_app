@@ -5,10 +5,12 @@ import PersonIcon from "@mui/icons-material/Person";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "../../axios";
+import RepoDetails from "../UserDetails/RepoDetails";
 import "./User.css";
 
 const User = () => {
-  const { login } = useParams();
+  const { login, user, location, site, github } = useParams();
+  console.log(useParams);
 
   //UserInformation
   const [userInfo, setUserInfo] = useState({});
@@ -45,31 +47,36 @@ const User = () => {
           <p>{userInfo?.bio}</p>
           <div className="more-data">
             <p>
-              <PersonIcon src={user} />
+              <PersonIcon user={user} />
               {userInfo?.followers} Followers. Following {userInfo?.following}
             </p>
+            {userInfo?.location && (
+              <p>
+                <LocationOnIcon location={location} />
+                {userInfo?.location}
+              </p>
+            )}
+            {userInfo?.blog && (
+              <p>
+                <OpenInBrowserIcon site={site} />
+                {userInfo?.blog}
+              </p>
+            )}
             <p>
-              <LocationOnIcon />
-              South Africa
-            </p>
-            <p>
-              <OpenInBrowserIcon />
-              Portfolio.com
-            </p>
-            <p>
-              <GitHubIcon /> <a href="#">view Git Profile</a>
+              <GitHubIcon github={github} />{" "}
+              <a href={userInfo?.html_url}>view Git Profile</a>
             </p>
           </div>
         </div>
       </div>
       <div className="user-repos">
-        <div className="repo">
-          <h3>
-            <a href="#">Name of the repo</a>
-          </h3>
-          <p>Repo Description</p>
-          <small>Written in JavaScript</small>
-        </div>
+        {repos ? (
+          repos.map((repo) => {
+            return <RepoDetails repo={repo} key={repo.id} />;
+          })
+        ) : (
+          <h2>No repos for this user...</h2>
+        )}
       </div>
     </div>
   );
